@@ -3,6 +3,17 @@ const chatList = document.querySelector('.chat-list');
 const newChat = document.querySelector('.new-chat');
 const newName = document.querySelector('.new-name');
 const updateMsg = document.querySelector('.update-mssg');
+const rooms = document.querySelector('.chat-rooms');
+
+rooms.addEventListener('click', e => {
+  if (e.target.tagName === 'BUTTON') {
+    chatUI.clear();
+    chatroom.updateRoom(e.target.getAttribute('id'));
+    chatroom.getChats(chat => {
+      chatUI.render(chat);
+    });
+  }
+});
 
 // class instances
 const chatUI = new ChatUI(chatList);
