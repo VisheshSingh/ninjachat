@@ -6,7 +6,10 @@ const updateMsg = document.querySelector('.update-mssg');
 
 // class instances
 const chatUI = new ChatUI(chatList);
-const chatroom = new Chatroom('general', 'steve');
+const username = localStorage.getItem('username')
+  ? localStorage.getItem('username')
+  : 'anonymous';
+const chatroom = new Chatroom('general', username);
 
 // form events
 newChat.addEventListener('submit', e => {
